@@ -11,14 +11,18 @@ import javax.persistence.Id;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 public class SIMEntity {
+
     @Id
+    @GeneratedValue()
+    private Long id;
+
 
     @Column(nullable = false)
     private String iccid;
     @Column(nullable = false)
     private String customerEmail;
 
-    @Column
+    @Column(nullable = false)
     private boolean active;
     protected SIMEntity(){}
 
@@ -27,17 +31,20 @@ public class SIMEntity {
         this.customerEmail=customerEmail;
         this.active = active;
     }
+    public Long getId() {
+        return id;
+    }
 
     public String getIccid() {
         return iccid;
     }
+    public void setIccid(String iccid) {
+        this.iccid = iccid;
+    }
+
 
     public String getCustomerEmail() {
         return customerEmail;
-    }
-
-    public void setIccid(String iccid) {
-        this.iccid = iccid;
     }
 
     public void setCustomerEmail(String customerEmail) {

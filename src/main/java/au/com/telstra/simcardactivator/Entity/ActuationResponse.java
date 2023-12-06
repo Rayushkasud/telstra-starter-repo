@@ -7,16 +7,17 @@ import javax.persistence.Entity;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ActuationResponse {
 
-
-
     private boolean success;
-    public ActuationResponse(){}
+    protected ActuationResponse(){}
     public ActuationResponse(boolean success) {
         this.success = success;
     }
 
     public void setSuccess(boolean success) {
         this.success = success;
+    }
+    public boolean isSuccess() {
+        return success;
     }
 
     @Override
@@ -26,7 +27,5 @@ public class ActuationResponse {
                 '}';
     }
 
-    public boolean isSuccess() {
-        return success;
-    }
+
 }
